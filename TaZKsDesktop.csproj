@@ -53,8 +53,9 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Pomodoro.cs" />
     <Compile Include="Model\Project.cs" />
-    <Compile Include="Model\Task.cs" />
+    <Compile Include="Model\Assignment.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Main.resx">

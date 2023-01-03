@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
+using TaZKsDesktop.Model;
 
 namespace TaZKsDesktop.Controler
 {
@@ -11,8 +12,7 @@ namespace TaZKsDesktop.Controler
     {
         public void CreatePomodoro()
         {
-            int TimeSeconds = 1500;
-            CreateCountDown(TimeSeconds);
+
         }
 
         public void CreateCountDown(int Seconds)
