@@ -8,6 +8,23 @@ namespace TaZKsDesktop.Model
 {
     internal class Project
     {
-        String Name;
+        private String Name;
+        private List<Assignment> Tasks = new List<Assignment>();
+
+        public Project(string name, List<Assignment> tasks)
+        {
+            this.Name = name;
+            this.Tasks = tasks;
+        }
+
+        public void AddTask(Assignment task)
+        {
+            this.Tasks.Add(task);
+        }
+
+        public List<Assignment> GetTaskList()
+        {
+            return this.Tasks;
+        }
     }
 }

@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace TaZKsDesktop.Model
 {
-    public class Task
+    public class Assignment
     {
-        String Name;
-        int EstimatedPomodoros;
-        Project RelatedProject;
+        public String Name;
+        public int EstimatedPomodoros;
     }
 }
