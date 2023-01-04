@@ -30,13 +30,39 @@ namespace TaZKsDesktop.Model
                 PomodoroTask pomodoroTask = new PomodoroTask();
                 pomodoroTask.TaskName = task.Name;
                 pomodoroTask.TimeSeconds = 1500;
-                this.SetPause();
+                this.PomodoroTasks.Add(pomodoroTask);
+                this.CreateBreak();
             }
         }
 
-        private void SetPause()
+        private void CreateBreak()
         {
+            PomodoroTask pause = new PomodoroTask();
 
+            if(this.CycleEnds())
+            {
+                pause.TaskName = "Long Break";
+                pause.TimeSeconds = 1500;
+            }
+            else
+            {
+                pause.TaskName = "Break";
+                pause.TimeSeconds = 300;
+            }
+        }
+
+        private bool CycleEnds()
+        {
+            double cycleCalculation = (this.PomodoroTasks.Count + 1) % 8;
+            
+            if(cycleCalculation == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
