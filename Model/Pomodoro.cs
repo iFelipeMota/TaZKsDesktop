@@ -14,12 +14,12 @@ namespace TaZKsDesktop.Model
 
         internal class Pomodoro
     {
-        List<PomodoroTask> PomodoroTasks = new List<PomodoroTask>();
+        public List<PomodoroTask> PomodoroTasks = new List<PomodoroTask>();
         public Pomodoro(Project project) 
         {
             foreach(Assignment assignment in project.GetTaskList())
             {
-
+                CreateSession(assignment);
             }
         }
 

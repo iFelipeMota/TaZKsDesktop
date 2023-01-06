@@ -16,5 +16,25 @@ namespace TaZKsDesktop
         {
             InitializeComponent();
         }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+            
+        }
+        public void CreateCountDown(int Seconds)
+        {
+            Timer CountDown = new Timer();
+            CountDown.Interval = 1000;
+            CountDown.Start();
+
+            if (Seconds == 0)
+            {
+                CountDown.Stop();
+            }
+            else
+            {
+                Seconds--;
+            }
+        }
     }
 }
