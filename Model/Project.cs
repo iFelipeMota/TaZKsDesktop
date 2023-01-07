@@ -17,6 +17,11 @@ namespace TaZKsDesktop.Model
             this.Tasks = tasks;
         }
 
+        public Project(String name)
+        {
+            this.Name = name;
+        }
+
         public void AddTask(Assignment task)
         {
             this.Tasks.Add(task);
