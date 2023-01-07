@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controler\FilesController.cs" />
     <Compile Include="Controler\PomodoroControler.cs" />
+    <Compile Include="Controler\ProjectController.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>

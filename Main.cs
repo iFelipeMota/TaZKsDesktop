@@ -19,6 +19,7 @@ namespace TaZKsDesktop
 
         private void Main_Load(object sender, EventArgs e)
         {
+
             
         }
         public void CreateCountDown(int Seconds)
