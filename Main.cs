@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TaZKsDesktop.Controler;
+using TaZKsDesktop.Model;
 
 namespace TaZKsDesktop
 {
@@ -19,10 +21,19 @@ namespace TaZKsDesktop
 
         private void Main_Load(object sender, EventArgs e)
         {
-
-            
+            PomodoroControler pomodoro= new PomodoroControler();
+            this.StartTasks(pomodoro.CreatePomodoro(""));
         }
-        public void CreateCountDown(int Seconds)
+
+        private void StartTasks(Pomodoro pomodoro)
+        {
+            foreach(PomodoroTask task in pomodoro.PomodoroTasks)
+            {
+                this.CreateCountDown(task.TimeSeconds);
+            }
+        }
+
+        private void CreateCountDown(int Seconds)
         {
             Timer CountDown = new Timer();
             CountDown.Interval = 1000;

@@ -9,8 +9,9 @@ namespace TaZKsDesktop.Controler
 {
     internal class PomodoroControler
     {
-        public Pomodoro CreatePomodoro(Project project) {
-            return new Pomodoro(project);
+        public Pomodoro CreatePomodoro(string projectName) {
+            FilesController file = new FilesController();
+            return new Pomodoro(file.GetProjectData(projectName));
         }
     }
 }
