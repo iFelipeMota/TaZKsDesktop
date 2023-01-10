@@ -4,28 +4,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Security.Cryptography;
+using System.Xml.Linq;
+using TaZKsDesktop.Model;
 
 namespace TaZKsDesktop.Controler
 {
     internal class FilesController
     {
-        private string Read(string name)
+        public Project GetProjectData(string name)
         {
             string path = "" + name + ".txt";
-
+            Project project = new Project(name);
             if (File.Exists(path))
             {
-                 return File.ReadAllText(path);
+                foreach (string line in File.ReadLines(path))
+                {
+                    project.AddTask(this.GetCsvAssignment(line));
+                }
             }
-            else
-            {
-                return null;
-            }
+            return project;
         }
 
-        public void GetProjectData()
+        private Assignment GetCsvAssignment(string csAssignmentData)
         {
+            Assignment assignment = new Assignment();
+            assignment.Name = csAssignmentData.Split()[0];
+            assignment.EstimatedPomodoros = int.Parse(csAssignmentData.Split()[1]);
 
+            return assignment;
         }
     }
 }
