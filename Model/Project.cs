@@ -31,5 +31,10 @@ namespace TaZKsDesktop.Model
         {
             return this.Tasks;
         }
+
+        public string GetName()
+        {
+            return this.Name;
+        }
     }
 }
