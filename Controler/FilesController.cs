@@ -34,5 +34,15 @@ namespace TaZKsDesktop.Controler
 
             return assignment;
         }
+
+        public void CreateProjectFile(Project project)
+        {
+            string path = "" + project.GetName() + ".txt";
+            File.Create(path);
+            foreach(Assignment task in project.GetTaskList())
+            {
+                File.AppendAllText(path, task.Name + ";" + task.EstimatedPomodoros.ToString());
+            }
+        }
     }
 }
