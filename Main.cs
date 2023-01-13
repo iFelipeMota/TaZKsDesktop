@@ -14,6 +14,8 @@ namespace TaZKsDesktop
 {
     public partial class Main : Form
     {
+        private int PomodoroTime = 0;
+
         public Main()
         {
             InitializeComponent();
@@ -29,24 +31,37 @@ namespace TaZKsDesktop
         {
             foreach(PomodoroTask task in pomodoro.PomodoroTasks)
             {
-                this.CreateCountDown(task.TimeSeconds);
+                this.StartCountDown(task.TimeSeconds);
+                while (this.HasTime())
+                {
+                    //string tempo
+                }
             }
         }
 
-        private void CreateCountDown(int Seconds)
+        private void StartCountDown(int seconds)
         {
+            this.PomodoroTime= seconds;
             Timer CountDown = new Timer();
             CountDown.Interval = 1000;
             CountDown.Start();
+        }
 
-            if (Seconds == 0)
+        private bool HasTime()
+        {
+            if(this.PomodoroTime > 0)
             {
-                CountDown.Stop();
+                return true;
             }
             else
             {
-                Seconds--;
+                return false;
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            this.PomodoroTime--;
         }
     }
 }
