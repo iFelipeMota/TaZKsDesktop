@@ -23,7 +23,7 @@ namespace TaZKsDesktop
 
         private void Main_Load(object sender, EventArgs e)
         {
-            PomodoroControler pomodoro= new PomodoroControler();
+            PomodoroController pomodoro= new PomodoroController();
             this.StartTasks(pomodoro.CreatePomodoro(""));
         }
 
