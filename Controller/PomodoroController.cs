@@ -7,7 +7,7 @@ using TaZKsDesktop.Model;
 
 namespace TaZKsDesktop.Controler
 {
-    internal class PomodoroControler
+    internal class PomodoroController
     {
         public Pomodoro CreatePomodoro(string projectName) {
             FilesController file = new FilesController();
