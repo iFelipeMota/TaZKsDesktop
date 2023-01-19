@@ -15,6 +15,7 @@ namespace TaZKsDesktop
     public partial class Main : Form
     {
         private int PomodoroTime = 0;
+        private string TxtTime = string.Empty;
 
         public Main()
         {
@@ -34,7 +35,7 @@ namespace TaZKsDesktop
                 this.StartCountDown(task.TimeSeconds);
                 while (this.HasTime())
                 {
-                    //string tempo
+                    this.ChangeTextTime();
                 }
             }
         }
@@ -62,6 +63,16 @@ namespace TaZKsDesktop
         private void timer1_Tick(object sender, EventArgs e)
         {
             this.PomodoroTime--;
+        }
+
+        private void ChangeTextTime()
+        {
+            TimeSpan t = TimeSpan.FromSeconds(this.PomodoroTime);
+            this.TxtTime = string.Format("{0:D2}h:{1:D2}m:{2:D2}s:{3:D3}ms",
+                t.Hours,
+                t.Minutes,
+                t.Seconds,
+                t.Milliseconds);
         }
     }
 }
