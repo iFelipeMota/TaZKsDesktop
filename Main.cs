@@ -26,6 +26,7 @@ namespace TaZKsDesktop
         {
             PomodoroController pomodoro= new PomodoroController();
             this.StartTasks(pomodoro.CreatePomodoro(""));
+            this.webBrowser1.DocumentText = "<html>hello <script>alert('hi');</script></html>";
         }
 
         private void StartTasks(Pomodoro pomodoro)
@@ -69,6 +70,11 @@ namespace TaZKsDesktop
         {
             TimeSpan t = TimeSpan.FromSeconds(this.PomodoroTime);
             this.TxtTime = t.ToString(@"hh\:mm\:ss\:fff");
+        }
+
+        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+
         }
     }
 }
